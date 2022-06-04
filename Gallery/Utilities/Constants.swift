@@ -20,12 +20,25 @@ enum Constants {
 		static let explore = UIImage(named: "explore")
 		static let category = UIImage(named: "categories")
 		static let settings = UIImage(named: "settings")
-		static let topBackgroundImage = UIImage(named: "topbackgroundimage")
+		static let exploreBannerImage = UIImage(named: "exploreBannerImage")
+		static let categoryBannerImage = UIImage(named: "categoryBannerImage")
+		static let searchIcon = UIImage(systemName: "magnifyingglass")
+		static let pic1 = UIImage(named: "pic1")
+		static let pic2 = UIImage(named: "pic2")
+		static let pic3 = UIImage(named: "pic3")
+		static let pic4 = UIImage(named: "pic4")
+		static let pic5 = UIImage(named: "pic5")
+		static let pic6 = UIImage(named: "pic6")
+	}
+	
+	enum CellImages {
+		static let imageCollection = [Images.pic4, Images.pic5, Images.pic6, Images.pic4, Images.pic5, Images.pic6]
 	}
 	
 	enum Identifier {
-		static let MenuCollectionViewCell = "MenuCollectionViewCell"
-		static let categoryCollectionViewCell =  "CategoryCollectionViewCell"
+		static let explore = "ExploreCollectionViewCell"
+		static let menu = "MenuCollectionViewCell"
+		static let card =  "CardCollectionViewCell"
 		
 	}
 	
