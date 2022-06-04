@@ -22,10 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		window?.windowScene = windowScene
 		AppDelegate.standard.window = window
 		
-		let tabBarCoordinator = TabBarCordinator()
-		let TabBarController = TabBarController(tabBarCoordinator: tabBarCoordinator)
+		let tabBarController = TabBarController()
 
-		let navigationController = UINavigationController(rootViewController: TabBarController)
+		let navigationController = UINavigationController(rootViewController: tabBarController)
 		navigationController.modalTransitionStyle = .crossDissolve
 		navigationController.modalPresentationStyle = .fullScreen
 		navigationController.isNavigationBarHidden = true

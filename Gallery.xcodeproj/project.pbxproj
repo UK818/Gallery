@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042679B3284BB2F600104757 /* ViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042679B2284BB2F600104757 /* ViewLayout.swift */; };
+		042679B7284BBEA600104757 /* ExploreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042679B6284BBEA600104757 /* ExploreCollectionViewCell.swift */; };
 		0436F2C728488D9F00F219F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436F2C628488D9F00F219F1 /* AppDelegate.swift */; };
 		0436F2C928488D9F00F219F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436F2C828488D9F00F219F1 /* SceneDelegate.swift */; };
 		0436F2D028488DA200F219F1 /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0436F2CF28488DA200F219F1 /* ImageAssets.xcassets */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042679B2284BB2F600104757 /* ViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLayout.swift; sourceTree = "<group>"; };
+		042679B6284BBEA600104757 /* ExploreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCollectionViewCell.swift; sourceTree = "<group>"; };
 		0436F2C328488D9F00F219F1 /* Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0436F2C628488D9F00F219F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0436F2C828488D9F00F219F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042679B4284BBE5600104757 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				042679B6284BBEA600104757 /* ExploreCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		042679B5284BBE6B00104757 /* View Layout */ = {
+			isa = PBXGroup;
+			children = (
+				042679B2284BB2F600104757 /* ViewLayout.swift */,
+			);
+			path = "View Layout";
+			sourceTree = "<group>";
+		};
 		0436F2BA28488D9F00F219F1 = {
 			isa = PBXGroup;
 			children = (
@@ -104,10 +124,9 @@
 		04F520F4284A6CDE00BB67A6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				04F520FB284A73B800BB67A6 /* Root View */,
-				04F520FC284A747700BB67A6 /* Explore View */,
-				04F520FD284A748800BB67A6 /* Category View */,
-				04F520FE284A749B00BB67A6 /* Settings View */,
+				042679B5284BBE6B00104757 /* View Layout */,
+				04F520FC284A747700BB67A6 /* View Controllers */,
+				042679B4284BBE5600104757 /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,36 +154,15 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
-		04F520FB284A73B800BB67A6 /* Root View */ = {
+		04F520FC284A747700BB67A6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				04F520F1284A6CC800BB67A6 /* TabBarController.swift */,
-			);
-			path = "Root View";
-			sourceTree = "<group>";
-		};
-		04F520FC284A747700BB67A6 /* Explore View */ = {
-			isa = PBXGroup;
-			children = (
 				04F520FF284A74EC00BB67A6 /* ExploreViewController.swift */,
-			);
-			path = "Explore View";
-			sourceTree = "<group>";
-		};
-		04F520FD284A748800BB67A6 /* Category View */ = {
-			isa = PBXGroup;
-			children = (
 				04F52101284A751200BB67A6 /* CategoryViewController.swift */,
-			);
-			path = "Category View";
-			sourceTree = "<group>";
-		};
-		04F520FE284A749B00BB67A6 /* Settings View */ = {
-			isa = PBXGroup;
-			children = (
 				04F52103284A756F00BB67A6 /* SettingsViewController.swift */,
 			);
-			path = "Settings View";
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +235,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042679B7284BBEA600104757 /* ExploreCollectionViewCell.swift in Sources */,
+				042679B3284BB2F600104757 /* ViewLayout.swift in Sources */,
 				04F52102284A751200BB67A6 /* CategoryViewController.swift in Sources */,
 				04F52100284A74EC00BB67A6 /* ExploreViewController.swift in Sources */,
 				04CC06C6284B9F5E004766B5 /* TabBarCoordinator.swift in Sources */,
