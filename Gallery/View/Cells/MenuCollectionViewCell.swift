@@ -56,8 +56,11 @@ class MenuCollectionViewCell: UICollectionViewCell {
 		
 	}
 	
-	public func populateMenuCell(with title: String) {
+	public func populateMenuCell(with title: String, index: IndexPath) {
 		titleLabel.text = title
+		if index.row == 0 {
+			menuIsSelected()
+		}
 	}
 	
 	public func menuIsDeSelected() {

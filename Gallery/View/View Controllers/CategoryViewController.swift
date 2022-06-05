@@ -18,7 +18,7 @@ class CategoryViewController: UIViewController {
 	
 	private var menuTitleCollection: [String?] = []
 	private var cardImageCollection: [UIImage?] = []
-	var selectedCell = [IndexPath]()
+	var selectedCell: [IndexPath] = [[0,0]]
 	
 	init(viewLayout: ViewLayout) {
 		self.viewLayout = viewLayout
@@ -123,7 +123,7 @@ extension CategoryViewController: UICollectionViewDataSource {
 				return UICollectionViewCell()
 			}
 			if let title = menuTitleCollection[indexPath.row] {
-				menuCell.populateMenuCell(with: title)
+				menuCell.populateMenuCell(with: title, index: indexPath)
 			}
 			return menuCell
 		} else {
@@ -146,6 +146,7 @@ extension CategoryViewController: UICollectionViewDelegate {
 		if collectionView == menuCollectionView {
 			let cell = collectionView.cellForItem(at: indexPath) as? MenuCollectionViewCell
 			selectedCell.append(indexPath)
+			print(indexPath)
 			cell?.menuIsSelected()
 		}
 	}
