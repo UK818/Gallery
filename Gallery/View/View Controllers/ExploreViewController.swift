@@ -16,7 +16,7 @@ class ExploreViewController: UIViewController {
 	private var searchIcon: UIBarButtonItem!
 	private var collectionView: UICollectionView!
 	
-	private var imageCollection: [UIImage?]!
+	private var imageCollection: [UIImage?] = []
 	
 	init(viewLayout: ViewLayout) {
 		super.init(nibName: nil, bundle: nil)
@@ -30,13 +30,13 @@ class ExploreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		navigationController?.title = "Explore"
-		instantiateLayout()
+		setupVC()
 		collectionViewSetup()
 		setUplayoutConstraints()
 		configureNavBar()
     }
 	
-	func configureNavBar() {
+	private func configureNavBar() {
 		self.searchIcon = UIBarButtonItem(
 			image: Constants.Images.searchIcon,
 			style: .plain,
@@ -49,10 +49,10 @@ class ExploreViewController: UIViewController {
 		navigationItem.rightBarButtonItem?.tintColor = .white
 	}
 	
-	private func instantiateLayout() {
-		self.imageCollection = Constants.CellImages.imageCollection
+	private func setupVC() {
+		self.imageCollection = Constants.Collections.imageCollection
 		self.bannerImageView = viewLayout.exploreImageView
-		self.collectionView = viewLayout.collectionView
+		self.collectionView = viewLayout.exploreCollectionView
 		self.pageTitle = viewLayout.title
 		self.searchIcon = viewLayout.searchIcon
 		view.addSubview(bannerImageView)
@@ -62,9 +62,7 @@ class ExploreViewController: UIViewController {
 		collectionView.dataSource = self
 		collectionView.delegate = self
 		collectionView.center = view.center
-		
 		view.addSubview(collectionView)
-		
 	}
 	
 	private func setUplayoutConstraints() {
@@ -83,7 +81,7 @@ class ExploreViewController: UIViewController {
 		])
 	}
 	
-	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+	internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		let centerPoint = CGPoint(
 			x: self.collectionView.frame.size.width / 2 + scrollView.contentOffset.x,
 			y: self.collectionView.frame.size.height / 2 + scrollView.contentOffset.y
@@ -96,14 +94,14 @@ class ExploreViewController: UIViewController {
 		
 		if let cell = self.centerCell {
 			let offsetX = centerPoint.x - cell.center.x
-			if offsetX < -15 || offsetX > 15 {
+			if offsetX < -25 || offsetX > 25 {
 				zoomOut()
 				self.centerCell = nil
 			}
 		}
 	}
 	
-	func zoomIn() {
+	private func zoomIn() {
 		UIView.animate(withDuration: 0.2) {
 			self.centerCell.transform = CGAffineTransform(scaleX: 1.20, y: 1.30)
 		}
@@ -111,7 +109,7 @@ class ExploreViewController: UIViewController {
 		generator.impactOccurred()
 	}
 	
-	func zoomOut() {
+	private func zoomOut() {
 		UIView.animate(withDuration: 0.2) {
 			self.centerCell.transform = CGAffineTransform.identity
 		}
@@ -123,7 +121,7 @@ class ExploreViewController: UIViewController {
 
 }
 
-extension ExploreViewController: UICollectionViewDataSource {
+extension ExploreViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		imageCollection.count
@@ -138,9 +136,5 @@ extension ExploreViewController: UICollectionViewDataSource {
 		}
 		return cell
 	}
-	
-}
-
-extension ExploreViewController: UICollectionViewDelegate {
 	
 }

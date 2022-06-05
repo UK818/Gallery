@@ -8,6 +8,8 @@
 import UIKit
 
 class TabBarController: UITabBarController {
+	
+	let viewLayout = ViewLayout()
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +24,6 @@ class TabBarController: UITabBarController {
 	}
 
 	private func navigateToExplorePage() -> UINavigationController {
-		let viewLayout = ViewLayout()
 		let exploreViewController = ExploreViewController(viewLayout: viewLayout)
 		exploreViewController.tabBarItem.title = Constants.TabBarTitle.explore
 		exploreViewController.tabBarItem.image = Constants.Images.explore?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
@@ -30,7 +31,7 @@ class TabBarController: UITabBarController {
 	}
 	
 	private func navigateToCategoryPage() -> UINavigationController {
-		let exploreViewController = CategoryViewController()
+		let exploreViewController = CategoryViewController(viewLayout: viewLayout)
 		exploreViewController.tabBarItem.title = Constants.TabBarTitle.category
 		exploreViewController.tabBarItem.image = Constants.Images.category?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
 		return UINavigationController(rootViewController: exploreViewController)

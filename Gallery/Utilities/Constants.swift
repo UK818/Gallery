@@ -31,15 +31,16 @@ enum Constants {
 		static let pic6 = UIImage(named: "pic6")
 	}
 	
-	enum CellImages {
+	enum Collections {
 		static let imageCollection = [Images.pic4, Images.pic5, Images.pic6, Images.pic4, Images.pic5, Images.pic6]
+		static let menuLabelCollection = ["Nature", "Colors", "Texture", "Super Hero", "Technology"]
+		static let cardImageCollection = [Images.pic1, Images.pic2, Images.pic3, Images.pic1, Images.pic2, Images.pic3, Images.pic1, Images.pic2, Images.pic3]
 	}
 	
 	enum Identifier {
 		static let explore = "ExploreCollectionViewCell"
 		static let menu = "MenuCollectionViewCell"
 		static let card =  "CardCollectionViewCell"
-		
 	}
 	
 	enum Colors {
