@@ -12,10 +12,16 @@ class MenuCollectionViewCell: UICollectionViewCell {
 	static let identifier = Constants.Identifier.menu
 	
 	private let titleLabel: UILabel = {
-		let label = UILabel()
+		let label = PaddedLabel()
+		label.numberOfLines = 0
+		label.textAlignment = .center
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.textColor = .white
 		label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+		label.paddingLeft = 6
+		label.paddingRight = 6
+		label.paddingTop = 4
+		label.paddingBottom = 4
 		return label
 	}()
 	
@@ -38,6 +44,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
 	private func setupCell() {
 		contentView.addSubview(titleLabel)
 		contentView.addSubview(indicatorSelector)
+		contentMode = .scaleAspectFit
 		indicatorSelector.isHidden = true
 		
 		NSLayoutConstraint.activate([
@@ -49,9 +56,11 @@ class MenuCollectionViewCell: UICollectionViewCell {
 			titleLabel.heightAnchor.constraint(equalToConstant: 30),
 			titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor),
 			
-			indicatorSelector.widthAnchor.constraint(equalToConstant: 50),
+//			indicatorSelector.widthAnchor.constraint(equalTo: titleLabel.widthAnchor),
 			indicatorSelector.heightAnchor.constraint(equalToConstant: 5),
-			indicatorSelector.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5)
+			indicatorSelector.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
+			indicatorSelector.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+			indicatorSelector.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
 		])
 		
 	}

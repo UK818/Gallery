@@ -166,7 +166,7 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		
 		if collectionView == menuCollectionView {
-			return CGSize(width: menuCollectionView.frame.width / 4.5, height: menuCollectionView.frame.height)
+			return CGSize(width: menuCollectionView.frame.width / 3.9, height: menuCollectionView.frame.height)
 		}
 		else {
 			return CGSize(width: (cardCollectionView.frame.size.width - 20) / 3, height: 218.67)
@@ -176,23 +176,29 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension CategoryViewController: UIScrollViewDelegate {
-
-	public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-			
-		if self.scrollViewContainer.panGestureRecognizer.translation(in: self.scrollViewContainer).y <= 0 {
-			UIView.animate(withDuration: 1) {
-				self.scrollViewContainer.contentOffset.y = self.container.frame.origin.y - 30
-				self.bannerImageView.isHidden = true
-				self.view.layoutIfNeeded()
-			}
-		} else {
-			UIView.animate(withDuration: 1) {
-				self.scrollViewContainer.contentOffset.y = 0
-				self.bannerImageView.isHidden = false
-				self.view.layoutIfNeeded()
-			}
-		}
 	
+	internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		if self.scrollViewContainer.panGestureRecognizer.translation(in: self.scrollViewContainer).y <= 0 {
+			hideBannerImage()
+		} else if self.scrollViewContainer.panGestureRecognizer.translation(in: self.scrollViewContainer).y > 0 {
+			showBannerImage()
+		}
+	}
+	
+	private func hideBannerImage() {
+		UIView.animate(withDuration: 1) {
+			self.scrollViewContainer.contentOffset.y = self.container.frame.origin.y - 40
+			self.bannerImageView.isHidden = true
+			self.view.layoutIfNeeded()
+		}
+	}
+	
+	private func showBannerImage() {
+		UIView.animate(withDuration: 1) {
+			self.scrollViewContainer.contentOffset.y = 0
+			self.bannerImageView.isHidden = false
+			self.view.layoutIfNeeded()
+		}
 	}
 
 }
